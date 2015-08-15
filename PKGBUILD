@@ -1,0 +1,19 @@
+# Maintainer: Tasos Latsas <tlatsas2000 at gmail dot com>
+# Contributor: Laszlo Papp <djszapi at archlinux us>
+
+pkgname=django-piston
+pkgver=0.2.3
+pkgrel=2
+pkgdesc="Piston is a django mini-framework for creating APIs"
+arch=(any)
+url="http://bitbucket.org/jespern/django-piston"
+license=('BSD')
+depends=('python2-django')
+makedepends=('python2-distribute')
+source=("http://pypi.python.org/packages/source/d/$pkgname/$pkgname-$pkgver.tar.gz")
+sha1sums=('65e6d30b03cc201d21a6d7ba82c2b7684beeac2b')
+
+package() {
+    cd "$srcdir/$pkgname-$pkgver"
+    python2 setup.py install --root="$pkgdir/" --optimize=1
+}
